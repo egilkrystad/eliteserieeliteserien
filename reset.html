@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Nytt passord</title>
+</head>
+<body>
+
+<h2>Velg nytt passord</h2>
+
+<input
+    id="password"
+    type="password"
+    placeholder="Nytt passord">
+
+<button onclick="savePassword()">
+    Lagre passord
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const supabaseClient =
+    window.supabase.createClient(
+        "https://ilgdmxamhoawloquxfes.supabase.co",
+        "DIN_PUBLISHABLE_KEY"
+    );
+
+async function savePassword() {
+
+    const password =
+        document.getElementById("password")
+            .value;
+
+    const { error } =
+        await supabaseClient.auth.updateUser({
+            password
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+    } else {
+
+        alert(
+            "Passordet er oppdatert."
+        );
+
+        window.location.href =
+            "index.html";
+    }
+}
+
+</script>
+
+</body>
+</html>

@@ -75,9 +75,48 @@ button{
     <button type="submit">
         Logg inn
     </button>
+	
+	<p>
+    <a href="#"
+       onclick="forgotPassword()">
+       Glemt passord?
+    </a>
+</p>
+	<button type="button" onclick="showRegister()">
+		Registrer ny bruker
+	</button>
+
 
 </form>
 
+
+</div>
+
+<div id="registerBox" style="display:none;">
+
+    <h2>Registrer bruker</h2>
+
+    <input
+        id="registerEmail"
+        type="email"
+        placeholder="E-post">
+
+    <input
+        id="registerPassword"
+        type="password"
+        placeholder="Passord">
+
+    <input
+        id="inviteCode"
+        placeholder="Invitasjonskode">
+
+    <button onclick="registerUser()">
+        Registrer
+    </button>
+
+    <button onclick="showLogin()">
+        Tilbake
+    </button>
 
 </div>
 
@@ -162,7 +201,7 @@ new Sortable(
 );
 
 async function login() {
-
+	const INVITE_CODE = "ELITE2027";
     const email =
         document.getElementById("email").value;
 
@@ -185,6 +224,100 @@ async function login() {
 
 		startAutoLogout();
         await checkUser();
+    }
+}
+function showRegister() {
+
+    document.getElementById("loginBox")
+        .style.display = "none";
+
+    document.getElementById("registerBox")
+        .style.display = "block";
+}
+
+function showLogin() {
+
+    document.getElementById("registerBox")
+        .style.display = "none";
+
+    document.getElementById("loginBox")
+        .style.display = "block";
+}
+
+async function forgotPassword() {
+
+    const email =
+        document.getElementById("email")
+            .value
+            .trim();
+
+    if (!email) {
+
+        alert(
+            "Skriv inn e-postadressen først."
+        );
+
+        return;
+    }
+
+    const { error } =
+        await supabaseClient.auth.resetPasswordForEmail(
+            email,
+            {
+                redirectTo:
+                "https://eliteserieeliteserien.no/reset.html"
+            }
+        );
+
+    if (error) {
+
+        alert(error.message);
+
+    } else {
+
+        alert(
+            "E-post med lenke for nytt passord er sendt."
+        );
+    }
+}
+
+async function registerUser() {
+
+    const email =
+        document.getElementById("registerEmail")
+            .value.trim();
+
+    const password =
+        document.getElementById("registerPassword")
+            .value;
+
+    const inviteCode =
+        document.getElementById("inviteCode")
+            .value.trim();
+
+    if (inviteCode !== INVITE_CODE) {
+
+        alert("Ugyldig invitasjonskode");
+        return;
+    }
+
+    const { error } =
+        await supabaseClient.auth.signUp({
+            email,
+            password
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+    } else {
+
+        alert(
+            "Bruker opprettet. Du kan nå logge inn."
+        );
+
+        showLogin();
     }
 }
 
