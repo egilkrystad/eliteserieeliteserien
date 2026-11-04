@@ -139,7 +139,7 @@ button{
 	
 	<input
     id="phone"
-    placeholder="Telefonnummer">
+    placeholder="Mobilnummer">
 
 
 
@@ -330,20 +330,32 @@ async function registerUser() {
 
     if (error) {
 
-        alert(error.message);
+    alert(error.message);
+
+} else {
+
+    console.log("DATA", data);
+
+    if (data.session) {
+
+        alert(
+            "Brukeren er registrert og innlogget."
+        );
+
+        await checkUser();
 
     } else {
 
         alert(
-            "Bruker opprettet. Du kan nå logge inn."
+            "Brukeren er registrert. Du kan nå logge inn."
         );
 
         showLogin();
 
-		document.getElementById("email").value =
-			email;
+        document.getElementById("email").value =
+            email;
 
-		document.getElementById("password").focus();
+        document.getElementById("password").focus();
     }
 }
 
@@ -371,6 +383,13 @@ async function savePrediction() {
 
 	if (!firstName || !lastName || !phone) {
 		alert("Skriv inn fornavn, etternavn og telefonnummer");
+		return;
+	}
+
+	if (!/^[49][0-9]{7}$/.test(phone)) {
+		alert(
+			"Må være et gyldig mobilnummer."
+		);
 		return;
 	}
 
@@ -443,20 +462,20 @@ async function checkUser() {
     }
 
     const {
-        data: { user }
-    } = await supabaseClient.auth.getUser();
+		data: { user },
+		error
+	} = await supabaseClient.auth.getUser();
 
-    const { data } = await supabaseClient
-        .from("predictions")
-        .select("id")
-        .eq("user_id", user.id)
-        .limit(1);
+	if (error || !user) {
 
-    if (data && data.length > 0) {
+		document.getElementById("loginBox")
+			.style.display = "block";
 
-        window.location.href = "tips.html";
-        return;
-    }
+		document.getElementById("app")
+			.style.display = "none";
+
+		return;
+	}
 
     document.getElementById("loginBox")
         .style.display = "none";

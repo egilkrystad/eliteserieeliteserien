@@ -24,7 +24,7 @@
 const supabaseClient =
     window.supabase.createClient(
         "https://ilgdmxamhoawloquxfes.supabase.co",
-        "DIN_PUBLISHABLE_KEY"
+        "sb_publishable_gYJ_YjEozpUk65ACQ84GEQ_QX_vbmrb"
     );
 
 async function savePassword() {
@@ -33,6 +33,15 @@ async function savePassword() {
         document.getElementById("password")
             .value;
 
+    if (password.length < 3) {
+
+        alert(
+            "Passordet må være minst 3 tegn."
+        );
+
+        return;
+    }
+
     const { error } =
         await supabaseClient.auth.updateUser({
             password
@@ -40,6 +49,7 @@ async function savePassword() {
 
     if (error) {
 
+        console.error(error);
         alert(error.message);
 
     } else {
@@ -52,6 +62,7 @@ async function savePassword() {
             "index.html";
     }
 }
+
 
 </script>
 
