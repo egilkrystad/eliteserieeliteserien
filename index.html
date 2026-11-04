@@ -295,17 +295,38 @@ async function registerUser() {
         document.getElementById("inviteCode")
             .value.trim();
 
+    console.log({
+        email,
+        password,
+        inviteCode
+    });
+
     if (inviteCode !== INVITE_CODE) {
 
         alert("Ugyldig invitasjonskode");
         return;
     }
 
-    const { error } =
-        await supabaseClient.auth.signUp({
-            email,
-            password
-        });
+    const { data, error } =
+		await supabaseClient.auth.signUp({
+			email,
+			password
+		});
+
+	console.log(
+		"EMAIL:",
+		email
+	);
+
+	console.log(
+		"DATA:",
+		JSON.stringify(data, null, 2)
+	);
+
+	console.log(
+		"ERROR:",
+		error
+	);
 
     if (error) {
 
@@ -318,6 +339,11 @@ async function registerUser() {
         );
 
         showLogin();
+
+		document.getElementById("email").value =
+			email;
+
+		document.getElementById("password").focus();
     }
 }
 
