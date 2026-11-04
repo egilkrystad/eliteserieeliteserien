@@ -358,7 +358,7 @@ async function registerUser() {
         document.getElementById("password").focus();
     }
 }
-
+}
 async function savePrediction() {
 	const {
 		data: { session }
@@ -462,20 +462,24 @@ async function checkUser() {
     }
 
     const {
-		data: { user },
-		error
-	} = await supabaseClient.auth.getUser();
+        data: { user },
+        error
+    } = await supabaseClient.auth.getUser();
 
-	if (error || !user) {
+    if (error || !user) {
 
-		document.getElementById("loginBox")
-			.style.display = "block";
+        console.error(error);
 
-		document.getElementById("app")
-			.style.display = "none";
+        await supabaseClient.auth.signOut();
 
-		return;
-	}
+        document.getElementById("loginBox")
+            .style.display = "block";
+
+        document.getElementById("app")
+            .style.display = "none";
+
+        return;
+    }
 
     document.getElementById("loginBox")
         .style.display = "none";
