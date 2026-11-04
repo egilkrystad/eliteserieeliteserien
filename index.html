@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eliteserietips</title>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+#teams{
+    list-style:none;
+    padding:0;
+}
+
+#teams li{
+    padding:12px;
+    margin:4px 0;
+    background:#f0f0f0;
+    border:1px solid #ccc;
+    cursor:move;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:16px;
+}
+</style>
+</head>
+
+<body>
+
+
+<div id="loginBox">
+	<h1>Elite!</h1>
+
+	
+	<form onsubmit="login(); return false;">
+
+    <input
+        id="email"
+        type="email"
+        placeholder="E-post"
+        autocomplete="email">
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Passord"
+        autocomplete="current-password">
+
+    <button type="submit">
+        Logg inn
+    </button>
+
+</form>
+
+
+</div>
+
+
+
+
+<div id="app" style="display:none;">
+
+    <h1>Eliteserietips 2027</h1>
+
+    <input
+        id="first_name"
+        placeholder="Fornavn"
+    >
+
+    <input
+        id="last_name"
+        placeholder="Etternavn"
+    >
+	
+	<input
+    id="phone"
+    placeholder="Telefonnummer">
+
+
+
+<ul id="teams">
+    <li>Brann</li>
+    <li>Bodø/Glimt</li>
+    <li>Viking</li>
+    <li>Rosenborg</li>
+    <li>Molde</li>
+    <li>Tromsø</li>
+    <li>Fredrikstad</li>
+    <li>Sarpsborg 08</li>
+    <li>KFUM</li>
+    <li>Sandefjord Fotball</li>
+    <li>HamKam</li>
+    <li>Kristiansund</li>
+    <li>Lillestrøm</li>
+    <li>Vålerenga</li>
+    <li>Aalesund</li>
+    <li>Start</li>
+</ul>
+
+    <button onclick="savePrediction()">
+        Lagre tips
+    </button>
+	
+	<button
+    id="showTipsButton"
+    style="display:none;"
+    onclick="window.location.href='tips.html'">
+    Se alle tips
+	</button>
+
+<button onclick="logout()" style="float:right;">
+    Logg ut
+</button>
+</div>
+
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://ilgdmxamhoawloquxfes.supabase.co";
+	
+const supabaseClient = window.supabase.createClient(
+    "https://ilgdmxamhoawloquxfes.supabase.co",
+    "sb_publishable_gYJ_YjEozpUk65ACQ84GEQ_QX_vbmrb"
+);
+
+const SUPABASE_KEY =
+    "sb_publishable_gYJ_YjEozpUk65ACQ84GEQ_QX_vbmrb";
+
+new Sortable(
+    document.getElementById("teams"),
+    {
+        animation: 150
+    }
+);
+
+async function login() {
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+            email,
+            password
+        });
+
+    console.log("LOGIN", data, error);
+
+    if (error) {
+
+        alert(error.message);
+
+    } else {
+
+		startAutoLogout();
+        await checkUser();
+    }
+}
+
+async function savePrediction() {
+	const {
+		data: { session }
+	} = await supabaseClient.auth.getSession();
+
+	if (!session) {
+		alert("Du må være innlogget");
+		return;
+	}
+
+    const firstName =
+    document.getElementById("first_name")
+    .value.trim();
+
+	const lastName =
+		document.getElementById("last_name")
+		.value.trim();
+		
+	const phone =
+		document.getElementById("phone")
+		.value.trim();
+
+	if (!firstName || !lastName || !phone) {
+		alert("Skriv inn fornavn, etternavn og telefonnummer");
+		return;
+	}
+
+
+
+    const teams =
+        [...document.querySelectorAll("#teams li")]
+        .map(li => li.textContent);
+
+	const {
+		data: { user }
+	} = await supabaseClient.auth.getUser();
+	
+	console.log({firstName,lastName,phone});
+
+	const { error } = await supabaseClient
+		
+		.from("predictions")
+		.insert([
+			{
+				user_id: user.id,
+				first_name: firstName,
+				last_name: lastName,
+				phone: phone,
+				prediction: teams
+			}
+		]);
+
+
+	if (error) {
+
+		if (error.code === "23505") {
+
+			alert("Telefonnummeret er allerede registrert");
+
+		} else {
+
+			alert(error.message);
+		}
+	}
+ else {
+
+		alert("Tipset er lagret!");
+
+		document.getElementById("showTipsButton")
+			.style.display = "inline-block";
+	}
+
+    
+
+}
+
+checkUser();
+
+async function checkUser() {
+
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+    if (!session) {
+
+        document.getElementById("loginBox")
+            .style.display = "block";
+
+        document.getElementById("app")
+            .style.display = "none";
+
+        return;
+    }
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
+    const { data } = await supabaseClient
+        .from("predictions")
+        .select("id")
+        .eq("user_id", user.id)
+        .limit(1);
+
+    if (data && data.length > 0) {
+
+        window.location.href = "tips.html";
+        return;
+    }
+
+    document.getElementById("loginBox")
+        .style.display = "none";
+
+    document.getElementById("app")
+        .style.display = "block";
+}
+
+async function logout() {
+    await supabaseClient.auth.signOut();
+    location.reload();
+}
+
+async function checkIfSubmitted() {
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
+    if (!user) return;
+
+    const { data } = await supabaseClient
+        .from("predictions")
+        .select("*")
+        .eq("user_id", user.id)
+        .limit(1);
+
+    if (data && data.length > 0) {
+
+        document.getElementById("showTipsButton")
+            .style.display = "inline-block";
+    }
+}
+
+const AUTO_LOGOUT_MINUTES = 60;
+
+function startAutoLogout() {
+    const expiresAt =
+        Date.now() + AUTO_LOGOUT_MINUTES * 60 * 1000;
+
+    localStorage.setItem(
+        "sessionExpiresAt",
+        expiresAt
+    );
+
+    setTimeout(forceLogout, AUTO_LOGOUT_MINUTES * 60 * 1000);
+}
+
+async function forceLogout() {
+    await supabaseClient.auth.signOut();
+
+    localStorage.removeItem("sessionExpiresAt");
+
+    window.location.href = "index.html";
+	alert("Logget ut av Elite pga tidsgrense ("+AUTO_LOGOUT_MINUTES+" min)");
+}
+
+function checkAutoLogout() {
+    const expiresAt =
+        localStorage.getItem("sessionExpiresAt");
+
+    if (!expiresAt) return;
+
+    const remaining =
+        Number(expiresAt) - Date.now();
+
+    if (remaining <= 0) {
+        forceLogout();
+        return;
+    }
+
+    setTimeout(forceLogout, remaining);
+}
+checkAutoLogout();
+
+</script>
+
+</body>
+</html>

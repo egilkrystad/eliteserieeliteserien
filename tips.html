@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eliteserieeliteserien 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+#tipsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 700px) {
+    #tipsContainer {
+        grid-template-columns: 1fr;
+    }
+}
+.tip{
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:15px;
+    margin-bottom:20px;
+    background:#f8f8f8;
+}
+
+.tip h2{
+    margin-top:0;
+}
+
+ol{
+    margin-bottom:0;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<h2 id="EliteserienHeading">Eliteserietabellen</h2>
+
+<div id="currentTable">
+    Laster tabell...
+</div>
+
+<hr>
+
+<h2>Innsendte Eliteserietips 2026</h2>
+<div id="tipsContainer">
+    Laster...
+</div>
+
+<h2 id="tableHeading">
+    Eliteserieeliteserietabellen
+</h2>
+
+<div id="teamScores"></div>
+
+<h2>Utvikling gjennom sesongen</h2>
+
+<canvas id="historyChart"></canvas>
+
+
+<button onclick="logout()">
+    Logg ut
+</button>
+
+
+<script>
+
+const supabaseClient = window.supabase.createClient(
+    "https://ilgdmxamhoawloquxfes.supabase.co",
+    "sb_publishable_gYJ_YjEozpUk65ACQ84GEQ_QX_vbmrb"
+);
+
+checkUser();
+
+async function checkUser() {
+
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
+
+    if (!session) {
+
+        alert("Du må være innlogget");
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+    loadTips();
+	await drawHistoryChart();
+	
+
+}
+
+
+async function loadTips() {
+
+    const { data, error } = await supabaseClient
+        .from("predictions")
+        .select("*")
+        .order("created_at", { ascending: true });
+
+    if (error) {
+
+        document.getElementById("tipsContainer")
+            .innerHTML = error.message;
+
+        return;
+    }
+
+    const container =
+        document.getElementById("tipsContainer");
+
+    container.innerHTML = "";
+
+    data.forEach(tip => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "tip";
+
+        div.innerHTML =
+    "<h2>" +
+    tip.first_name + " " +
+    tip.last_name +
+    "</h2><ol>" +
+    tip.prediction.map(team =>
+        "<li>" + team + "</li>"
+    ).join("") +
+    "</ol>";
+        container.appendChild(div);
+    });
+}
+
+async function logout() {
+
+    await supabaseClient.auth.signOut();
+
+    window.location.href = "index.html";
+}
+
+async function loadMatches() {
+
+    const txt =
+        await fetch("res.txt")
+            .then(r => r.text());
+
+    const matches = [];
+
+    txt.split("\n").forEach(line => {
+
+        const match =
+            line.match(
+                /#(\d+)\s+(.*?)\s+-\s+(.*?)\s+(\d+)-(\d+)/
+            );
+
+        if (!match) return;
+
+        matches.push({
+            round: Number(match[1]),
+            home_team: match[2].trim(),
+            away_team: match[3].trim(),
+            home_goals: Number(match[4]),
+            away_goals: Number(match[5])
+        });
+    });
+
+    return matches;
+}
+
+
+
+function calculateLeagueTable(matches) {
+
+    const table = {};
+
+    matches.forEach(match => {
+
+        [match.home_team, match.away_team].forEach(team => {
+
+            if (!table[team]) {
+
+                table[team] = {
+                    team,
+                    pts: 0,
+                    gd: 0,
+                    gf: 0
+                };
+            }
+        });
+
+        const home = table[match.home_team];
+        const away = table[match.away_team];
+
+        home.gf += match.home_goals;
+        away.gf += match.away_goals;
+
+        home.gd += match.home_goals - match.away_goals;
+        away.gd += match.away_goals - match.home_goals;
+
+        if (match.home_goals > match.away_goals) {
+
+            home.pts += 3;
+
+        } else if (match.home_goals < match.away_goals) {
+
+            away.pts += 3;
+
+        } else {
+
+            home.pts += 1;
+            away.pts += 1;
+        }
+    });
+
+    return Object.values(table)
+        .sort((a,b) =>
+            b.pts - a.pts ||
+            b.gd - a.gd ||
+            b.gf - a.gf
+        )
+        .map(row => row.team);
+}
+
+function buildCurrentTable(matches) {
+
+    const table = {};
+
+    matches.forEach(match => {
+
+        [match.home_team, match.away_team]
+            .forEach(team => {
+
+                if (!table[team]) {
+                    table[team] = {
+                        team,
+                        pts: 0,
+                        gd: 0,
+                        gf: 0
+                    };
+                }
+            });
+
+        const home = table[match.home_team];
+        const away = table[match.away_team];
+
+        home.gf += match.home_goals;
+        away.gf += match.away_goals;
+
+        home.gd += match.home_goals - match.away_goals;
+        away.gd += match.away_goals - match.home_goals;
+
+        if (match.home_goals > match.away_goals) {
+
+            home.pts += 3;
+
+        } else if (match.home_goals < match.away_goals) {
+
+            away.pts += 3;
+
+        } else {
+
+            home.pts += 1;
+            away.pts += 1;
+        }
+    });
+
+    return Object.values(table)
+        .sort((a,b) =>
+            b.pts - a.pts ||
+            b.gd - a.gd ||
+            b.gf - a.gf
+        );
+}
+
+function showCurrentTable(matches) {
+	const currentRound =
+		getCurrentRound(matches);
+	document.getElementById("EliteserienHeading").textContent =
+		"Eliteserietabellen 2026, runde " +currentRound;
+    const standings =
+        buildCurrentTable(matches);
+		
+
+    let html =
+        "<table border='1' cellpadding='5'>" +
+        "<tr>" +
+        "<th>#</th>" +
+		"<th>Lag</th>" +
+		"<th>Poeng</th>" +
+		"<th>+/-</th>" +
+        "</tr>";
+
+    standings.forEach((team, index) => {
+
+        html +=
+			"<tr>" +
+			"<td>" + (index + 1) + "</td>" +
+			"<td>" + team.team + "</td>" +
+			"<td>" + team.pts + "</td>" +
+			"<td>" + team.gd + "</td>" +
+			"</tr>";
+    });
+
+    html += "</table>";
+
+    document.getElementById("currentTable")
+        .innerHTML = html;
+}
+
+function calculateScore(prediction, actualTable) {
+
+    let score = 0;
+
+    prediction.forEach((team, predictedPos) => {
+
+        const actualPos =
+            actualTable.indexOf(team);
+		if (actualPos === -1) {
+			return;
+		}
+        if (actualPos === predictedPos) {
+            score -= 1;
+        } else {
+            score += Math.abs(
+                actualPos - predictedPos
+            );
+        }
+    });
+
+    return score;
+}
+
+function showTeamScores(tips, currentTable) {
+
+    let html =
+        "<table border='1' cellpadding='5'>" +
+        "<tr>" +
+        "<th>Plass</th>" +
+        "<th>Lag</th>";
+
+    tips.forEach((tip, index) => {
+
+        html +=
+            "<th>" +
+            tip.first_name +
+            " " +
+            tip.last_name +
+            "</th>";
+    });
+
+    html += "</tr>";
+	const totals = {};
+
+	tips.forEach(tip => {
+
+		totals[
+			tip.first_name + " " + tip.last_name
+		] = 0;
+	});
+	console.log("currentTable", currentTable);
+    currentTable.forEach((team, actualPos) => {
+
+        html +=
+            "<tr>" +
+            "<td>" + (actualPos + 1) + "</td>" +
+            "<td>" + team + "</td>";
+
+        tips.forEach(tip => {
+
+			const predictedTeam =
+				tip.prediction[actualPos];
+
+			const predictedPos =
+				currentTable.indexOf(predictedTeam);
+
+			let points;
+
+			if (predictedPos === actualPos) {
+
+				points = -1;
+
+			} else {
+
+				points =
+					Math.abs(
+						predictedPos - actualPos
+					);
+			}
+
+			totals[
+				tip.first_name + " " + tip.last_name
+			] += points;
+
+			html +=
+				"<td>" +
+				"<div style='font-size:11px'>" +
+				predictedTeam +
+				"</div>" +
+				"<b>" + points + "</b>" +
+				"</td>";
+		});
+
+        html += "</tr>";
+    });
+	html +=
+    "<tr>" +
+    "<th colspan='2'>Totalt</th>";
+
+	tips.forEach(tip => {
+
+		const name =
+			tip.first_name +
+			" " +
+			tip.last_name;
+
+		html +=
+			"<th>" +
+			totals[name] +
+			"</th>";
+	});
+
+	html += "</tr>";
+    html += "</table>";
+	
+
+    document.getElementById(
+        "teamScores"
+    ).innerHTML = html;
+}
+
+function buildRoundRanking(tips, roundTable) {
+
+    const results = [];
+
+    tips.forEach(tip => {
+
+        const score =
+            calculateScore(
+                tip.prediction,
+                roundTable
+            );
+
+        results.push({
+            name:
+                tip.first_name +
+                " " +
+                tip.last_name,
+            score
+        });
+    });
+
+    results.sort((a,b) =>
+        a.score - b.score
+    );
+
+    return results;
+}
+
+function getCurrentRound(matches) {
+
+    return Math.max(
+        ...matches.map(m => m.round)
+    );
+}
+
+async function drawHistoryChart() {
+	const matches =
+		await loadMatches();
+	const currentRound =
+		getCurrentRound(matches);
+
+	document.getElementById(
+		"tableHeading"
+	).textContent =
+		"Eliteserieeliteserietabellen 2026, runde " +
+		currentRound;
+	showCurrentTable(matches);
+    const { data: tips } =
+        await supabaseClient
+            .from("predictions")
+            .select("*");
+
+
+    const history = {};
+
+    tips.forEach(tip => {
+        history[
+            tip.first_name + " " + tip.last_name
+        ] = [];
+    });
+
+    const maxRound =Math.max(...matches.map(m => m.round));
+	const finalTable =
+    calculateLeagueTable(matches);
+
+
+	showTeamScores(tips,finalTable);
+    for (let round = 1; round <= maxRound; round++) {
+	
+		//console.log("runde", round);
+		
+
+        const roundMatches =
+            matches.filter(
+                m => m.round <= round
+            );
+
+        const table =
+            calculateLeagueTable(
+                roundMatches
+            );
+		
+		//console.log("table", table);
+        const ranking =
+            buildRoundRanking(
+                tips,
+                table
+            );
+		//console.log("ranking", ranking);
+        ranking.forEach(player => {
+			history[player.name]
+				.push(player.score);
+		});
+    }
+
+    const datasets =
+        Object.entries(history)
+            .map(([name, positions]) => ({
+                label: name,
+                data: positions,
+                fill: false,
+                tension: 0.1
+            }));
+
+    new Chart(
+        document.getElementById("historyChart"),
+        {
+            type: "line",
+            data: {
+                labels: Array.from(
+                    { length: maxRound },
+                    (_, i) => i + 1
+                ),
+                datasets
+            },
+            options: {
+				responsive: true,
+				plugins: {
+					legend: {
+						position: "bottom"
+					}
+				},
+				scales: {
+					y: {
+						reverse: true,
+						min: 1,
+						ticks: {
+							stepSize: 1
+						},
+						title: {
+							display: true,
+							text: "Poeng"
+						}
+					},
+					x: {
+						title: {
+							display: true,
+							text: "Runde"
+						}
+					}
+				}
+			}
+        }
+    );
+
+}
+
+
+const AUTO_LOGOUT_MINUTES = 60;
+
+function startAutoLogout() {
+    const expiresAt =
+        Date.now() + AUTO_LOGOUT_MINUTES * 60 * 1000;
+
+    localStorage.setItem(
+        "sessionExpiresAt",
+        expiresAt
+    );
+
+    setTimeout(forceLogout, AUTO_LOGOUT_MINUTES * 60 * 1000);
+}
+
+async function forceLogout() {
+    await supabaseClient.auth.signOut();
+
+    localStorage.removeItem("sessionExpiresAt");
+
+    window.location.href = "index.html";
+	alert("Logget ut av Elite pga tidsgrense ("+AUTO_LOGOUT_MINUTES+" min)");
+}
+
+function checkAutoLogout() {
+    const expiresAt =
+        localStorage.getItem("sessionExpiresAt");
+
+    if (!expiresAt) return;
+
+    const remaining =
+        Number(expiresAt) - Date.now();
+
+    if (remaining <= 0) {
+        forceLogout();
+        return;
+    }
+
+    setTimeout(forceLogout, remaining);
+}
+checkAutoLogout();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+#25	Vålerenga - Tromsø	4-0	01.11.2026 19:15	Intility Arena	Eliteserien
+#25	KFUM - HamKam	2-2	01.11.2026 17:00	KFUM-Arena	Eliteserien
+#25	Start - Lillestrøm	0-1	01.11.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#25	Sarpsborg 08 - Kristiansund	2-4	01.11.2026 17:00	Sarpsborg st KG	Eliteserien
+#25	Brann - Molde	3-2	01.11.2026 14:30	Brann stadion	Eliteserien
+oktober 2026
+#25	Aalesund - Sandefjord Fotball	3-4	31.10.2026 18:00	Color Line Stadion	Eliteserien
+#25	Fredrikstad - Rosenborg	0-3	31.10.2026 16:00	Fredrikstad stadion	Eliteserien
+#25	Bodø/Glimt - Viking	3-2	30.10.2026 19:00	Aspmyra stadion	Eliteserien
+#12	Molde - Fredrikstad	5-1	25.10.2026 19:15	Aker stadion	Eliteserien
+#12	Start - Sandefjord Fotball	1-0	25.10.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#12	Sarpsborg 08 - Aalesund	2-1	25.10.2026 17:00	Sarpsborg st KG	Eliteserien
+#12	Kristiansund - KFUM	2-2	25.10.2026 17:00	Nordmøre stadion	Eliteserien
+#12	Lillestrøm - Brann	3-2	25.10.2026 17:00	Åråsen stadion	Eliteserien
+#12	Viking - Tromsø	3-1	25.10.2026 14:30	Lyse Arena	Eliteserien
+#12	HamKam - Rosenborg	0-3	24.10.2026 18:00	Briskeby	Eliteserien
+#12	Bodø/Glimt - Vålerenga	0-1	24.10.2026 16:00	Aspmyra stadion	Eliteserien
+#24	Tromsø - KFUM	1-1	18.10.2026 19:15	Romssa Arena	Eliteserien
+#24	Sandefjord Fotball - Lillestrøm	0-2	18.10.2026 17:00	Jotun Arena	Eliteserien
+#24	Vålerenga - Brann	3-1	18.10.2026 17:00	Intility Arena	Eliteserien
+#24	Molde - Start	6-1	18.10.2026 17:00	Aker stadion	Eliteserien
+#24	Sarpsborg 08 - Rosenborg	0-3	18.10.2026 14:30	Sarpsborg st KG	Eliteserien
+#24	Viking - Fredrikstad	3-2	17.10.2026 18:00	Lyse Arena	Eliteserien
+#24	Kristiansund - Aalesund	1-4	17.10.2026 16:00	Nordmøre stadion	Eliteserien
+#24	HamKam - Bodø/Glimt	0-2	17.10.2026 14:00	Briskeby	Eliteserien
+#23	KFUM - Vålerenga	2-1	12.10.2026 19:00	KFUM-Arena	Eliteserien
+#23	Lillestrøm - Molde	2-2	11.10.2026 19:15	Åråsen stadion	Eliteserien
+#23	Start - HamKam	2-4	11.10.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#23	Aalesund - Sarpsborg 08	2-4	11.10.2026 17:00	Color Line Stadion	Eliteserien
+#23	Fredrikstad - Tromsø	1-1	11.10.2026 14:30	Fredrikstad stadion	Eliteserien
+#23	Rosenborg - Sandefjord Fotball	1-1	10.10.2026 18:00	Lerkendal stadion	Eliteserien
+#23	Bodø/Glimt - Kristiansund	3-1	10.10.2026 16:00	Aspmyra stadion	Eliteserien
+#23	Brann - Viking	0-2	09.10.2026 19:00	Brann stadion	Eliteserien
+september 2026
+#22	Brann - Bodø/Glimt	2-1	20.09.2026 19:15	Brann stadion	Eliteserien
+#22	Viking - Lillestrøm	3-0	20.09.2026 17:00	Lyse Arena	Eliteserien
+#22	Tromsø - HamKam	3-2	20.09.2026 17:00	Romssa Arena	Eliteserien
+#22	Sandefjord Fotball - Start	3-0	20.09.2026 17:00	Jotun Arena	Eliteserien
+#22	Vålerenga - Fredrikstad	1-1	20.09.2026 14:30	Intility Arena	Eliteserien
+#22	Molde - Aalesund	1-2	19.09.2026 18:00	Aker stadion	Eliteserien
+#22	Kristiansund - Rosenborg	1-3	19.09.2026 16:00	Nordmøre stadion	Eliteserien
+#22	Sarpsborg 08 - KFUM	1-3	18.09.2026 19:00	Sarpsborg st KG	Eliteserien
+#21	Bodø/Glimt - Sandefjord Fotball	3-2	14.09.2026 19:00	Aspmyra stadion	Eliteserien
+#21	Fredrikstad - Sarpsborg 08	1-1	13.09.2026 19:15	Fredrikstad stadion	Eliteserien
+#21	Start - Brann	2-0	13.09.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#21	KFUM - Aalesund	2-1	13.09.2026 17:00	KFUM-Arena	Eliteserien
+#21	HamKam - Molde	1-5	13.09.2026 17:00	Briskeby	Eliteserien
+#21	Viking - Kristiansund	8-1	13.09.2026 14:30	Lyse Arena	Eliteserien
+#21	Rosenborg - Tromsø	5-3	12.09.2026 18:00	Lerkendal stadion	Eliteserien
+#21	Lillestrøm - Vålerenga	2-0	12.09.2026 16:00	Åråsen stadion	Eliteserien
+#20	Kristiansund - Tromsø	2-0	06.09.2026 19:15	Nordmøre stadion	Eliteserien
+#20	Sarpsborg 08 - Vålerenga	2-2	06.09.2026 17:00	Sarpsborg st KG	Eliteserien
+#20	Molde - KFUM	2-0	06.09.2026 17:00	Aker stadion	Eliteserien
+#20	Brann - Lillestrøm	1-2	05.09.2026 18:00	Brann stadion	Eliteserien
+#20	Rosenborg - HamKam	4-0	05.09.2026 16:00	Lerkendal stadion	Eliteserien
+#20	Sandefjord Fotball - Viking	1-1	04.09.2026 21:00	Jotun Arena	Eliteserien
+#20	Fredrikstad - Bodø/Glimt	1-2	04.09.2026 19:00	Fredrikstad stadion	Eliteserien
+#20	Aalesund - Start	2-0	04.09.2026 19:00	Color Line Stadion	Eliteserien
+august 2026
+#19	Lillestrøm - Fredrikstad	1-4	30.08.2026 19:15	Åråsen stadion	Eliteserien
+#19	Vålerenga - Molde	3-4	30.08.2026 17:00	Intility Arena	Eliteserien
+#19	HamKam - Kristiansund	2-2	30.08.2026 17:00	Briskeby	Eliteserien
+#19	Sandefjord Fotball - Brann	0-0	30.08.2026 17:00	Jotun Arena	Eliteserien
+#19	Start - KFUM	4-1	30.08.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#19	Tromsø - Sarpsborg 08	0-0	30.08.2026 17:00	Romssa Arena	Eliteserien
+#19	Viking - Aalesund	2-1	30.08.2026 17:00	Lyse Arena	Eliteserien
+#19	Bodø/Glimt - Rosenborg	4-2	30.08.2026 14:30	Aspmyra stadion	Eliteserien
+#18	Fredrikstad - Kristiansund	1-0	16.08.2026 19:15	Fredrikstad stadion	Eliteserien
+#18	Molde - Tromsø	3-2	16.08.2026 17:00	Aker stadion	Eliteserien
+#18	Sarpsborg 08 - Sandefjord Fotball	1-2	16.08.2026 17:00	Sarpsborg st KG	Eliteserien
+#18	Brann - HamKam	3-0	16.08.2026 17:00	Brann stadion	Eliteserien
+#18	Aalesund - Vålerenga	5-5	16.08.2026 14:30	Color Line Stadion	Eliteserien
+#18	KFUM - Lillestrøm	1-1	15.08.2026 16:00	KFUM-Arena	Eliteserien
+#18	Rosenborg - Viking	2-1	14.08.2026 19:00	Lerkendal stadion	Eliteserien
+#17	Kristiansund - Molde	2-1	09.08.2026 19:15	Nordmøre stadion	Eliteserien
+#17	HamKam - Aalesund	1-1	09.08.2026 17:00	Briskeby	Eliteserien
+#17	Lillestrøm - Rosenborg	0-2	09.08.2026 14:30	Åråsen stadion	Eliteserien
+#17	Start - Fredrikstad	0-1	08.08.2026 18:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#17	Viking - Sarpsborg 08	2-1	08.08.2026 16:00	Lyse Arena	Eliteserien
+#17	Vålerenga - Bodø/Glimt	1-2	08.08.2026 14:00	Intility Arena	Eliteserien
+#17	Sandefjord Fotball - KFUM	0-1	07.08.2026 19:00	Jotun Arena	Eliteserien
+#16	Brann - Rosenborg	3-2	02.08.2026 19:15	Brann stadion	Eliteserien
+#16	KFUM - Kristiansund	2-1	02.08.2026 17:00	KFUM-Arena	Eliteserien
+#16	Molde - Sarpsborg 08	3-3	02.08.2026 17:00	Aker stadion	Eliteserien
+#16	Aalesund - Tromsø	2-6	02.08.2026 17:00	Color Line Stadion	Eliteserien
+#16	Start - Viking	0-3	01.08.2026 18:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#16	Fredrikstad - Sandefjord Fotball	1-0	01.08.2026 16:00	Fredrikstad stadion	Eliteserien
+juli 2026
+#16	Bodø/Glimt - Lillestrøm	4-0	31.07.2026 21:00	Aspmyra stadion	Eliteserien
+#16	Vålerenga - HamKam	0-3	31.07.2026 19:00	Intility Arena	Eliteserien
+#15	Rosenborg - Fredrikstad	4-0	27.07.2026 19:00	Lerkendal stadion	Eliteserien
+#15	Aalesund - Viking	1-1	26.07.2026 19:15	Color Line Stadion	Eliteserien
+#15	Sandefjord Fotball - Bodø/Glimt	0-3	26.07.2026 17:00	Jotun Arena	Eliteserien
+#15	Sarpsborg 08 - HamKam	1-0	26.07.2026 17:00	Sarpsborg st KG	Eliteserien
+#15	KFUM - Molde	2-4	26.07.2026 17:00	KFUM-Arena	Eliteserien
+#15	Brann - Vålerenga	2-3	26.07.2026 14:30	Brann stadion	Eliteserien
+#15	Kristiansund - Start	1-2	25.07.2026 16:00	Nordmøre stadion	Eliteserien
+#11	Lillestrøm - Viking	1-2	22.07.2026 19:00	Åråsen stadion	Eliteserien
+#2	Bodø/Glimt - HamKam	3-0	22.07.2026 19:00	Aspmyra stadion	Eliteserien
+#14	Viking - Sandefjord Fotball	2-1	18.07.2026 18:00	Lyse Arena	Eliteserien
+#14	Molde - Brann	1-2	18.07.2026 18:00	Aker stadion	Eliteserien
+#14	Kristiansund - Sarpsborg 08	0-0	18.07.2026 16:00	Nordmøre stadion	Eliteserien
+#14	Start - Rosenborg	0-3	18.07.2026 16:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#14	Lillestrøm - KFUM	2-1	18.07.2026 16:00	Åråsen stadion	Eliteserien
+#14	HamKam - Tromsø	1-4	18.07.2026 14:00	Briskeby	Eliteserien
+#14	Bodø/Glimt - Fredrikstad	1-0	17.07.2026 19:15	Aspmyra stadion	Eliteserien
+#14	Vålerenga - Aalesund	6-1	16.07.2026 19:00	Intility Arena	Eliteserien
+#13	Sarpsborg 08 - Viking	1-0	12.07.2026 19:15	Sarpsborg st KG	Eliteserien
+#13	Rosenborg - Kristiansund	3-0	12.07.2026 17:00	Lerkendal stadion	Eliteserien
+#13	Sandefjord Fotball - HamKam	2-2	12.07.2026 17:00	Jotun Arena	Eliteserien
+#13	Brann - Start	2-1	12.07.2026 17:00	Brann stadion	Eliteserien
+#13	KFUM - Bodø/Glimt	0-2	12.07.2026 14:30	KFUM-Arena	Eliteserien
+#13	Tromsø - Vålerenga	4-0	11.07.2026 18:00	Romssa Arena	Eliteserien
+#13	Aalesund - Molde	2-2	11.07.2026 16:00	Color Line Stadion	Eliteserien
+#13	Fredrikstad - Lillestrøm	0-2	11.07.2026 14:00	Fredrikstad stadion	Eliteserien
+mai 2026
+#11	Molde - Sandefjord Fotball	2-1	30.05.2026 16:00	Aker stadion	Eliteserien
+#11	Brann - Sarpsborg 08	1-2	29.05.2026 19:00	Brann stadion	Eliteserien
+#11	Vålerenga - Kristiansund	3-1	29.05.2026 19:00	Intility Arena	Eliteserien
+#11	Rosenborg - Bodø/Glimt	2-2	29.05.2026 19:00	Lerkendal stadion	Eliteserien
+#11	Fredrikstad - Start	2-1	29.05.2026 19:00	Fredrikstad stadion	Eliteserien
+#11	KFUM - Tromsø	0-0	29.05.2026 19:00	KFUM-Arena	Eliteserien
+#11	Aalesund - HamKam	2-2	29.05.2026 19:00	Color Line Stadion	Eliteserien
+#10	Sandefjord Fotball - Fredrikstad	1-1	25.05.2026 19:15	Jotun Arena	Eliteserien
+#10	Sarpsborg 08 - Molde	2-1	25.05.2026 17:00	Sarpsborg st KG	Eliteserien
+#10	Tromsø - Aalesund	1-1	25.05.2026 17:00	Romssa Arena	Eliteserien
+#10	HamKam - Lillestrøm	2-0	25.05.2026 17:00	Briskeby	Eliteserien
+#10	KFUM - Rosenborg	2-0	25.05.2026 17:00	KFUM-Arena	Eliteserien
+#10	Start - Vålerenga	2-0	25.05.2026 14:30	Sparebanken Norge Arena Kristiansand	Eliteserien
+#10	Kristiansund - Viking	1-2	24.05.2026 18:00	Nordmøre stadion	Eliteserien
+#10	Bodø/Glimt - Brann	3-1	24.05.2026 16:00	Aspmyra stadion	Eliteserien
+#8	Aalesund - Brann	2-1	20.05.2026 20:00	Color Line Stadion	Eliteserien
+#2	Lillestrøm - Kristiansund	1-2	20.05.2026 19:00	Åråsen stadion	Eliteserien
+#8	Start - Bodø/Glimt	1-4	20.05.2026 18:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#9	Vålerenga - Sarpsborg 08	3-2	16.05.2026 20:00	Intility Arena	Eliteserien
+#9	Bodø/Glimt - Tromsø	5-0	16.05.2026 18:00	Aspmyra stadion	Eliteserien
+#9	Rosenborg - Aalesund	2-3	16.05.2026 16:00	Lerkendal stadion	Eliteserien
+#9	Molde - Kristiansund	1-0	16.05.2026 16:00	Aker stadion	Eliteserien
+#9	Viking - Start	6-3	16.05.2026 16:00	Lyse Arena	Eliteserien
+#9	Lillestrøm - Sandefjord Fotball	3-1	16.05.2026 16:00	Åråsen stadion	Eliteserien
+#9	Fredrikstad - HamKam	2-1	16.05.2026 16:00	Fredrikstad stadion	Eliteserien
+#9	Brann - KFUM	2-1	16.05.2026 14:00	Brann stadion	Eliteserien
+#8	Sandefjord Fotball - Kristiansund	2-0	10.05.2026 17:00	Jotun Arena	Eliteserien
+#8	Tromsø - Molde	2-0	10.05.2026 17:00	Romssa Arena	Eliteserien
+#8	KFUM - Viking	0-2	10.05.2026 17:00	KFUM-Arena	Eliteserien
+#8	Rosenborg - Lillestrøm	2-0	10.05.2026 14:30	Lerkendal stadion	Eliteserien
+#8	Sarpsborg 08 - Fredrikstad	2-1	09.05.2026 14:00	Sarpsborg st KG	Eliteserien
+#8	HamKam - Vålerenga	1-0	08.05.2026 19:00	Briskeby	Eliteserien
+#7	Bodø/Glimt - Molde	0-1	04.05.2026 19:00	Aspmyra stadion	Eliteserien
+#7	Vålerenga - KFUM	2-2	03.05.2026 19:15	Intility Arena	Eliteserien
+#7	Sandefjord Fotball - Aalesund	1-0	03.05.2026 17:00	Jotun Arena	Eliteserien
+#7	Kristiansund - HamKam	1-1	03.05.2026 17:00	Nordmøre stadion	Eliteserien
+#7	Start - Tromsø	1-1	03.05.2026 17:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#7	Lillestrøm - Sarpsborg 08	4-0	03.05.2026 14:30	Åråsen stadion	Eliteserien
+#7	Brann - Fredrikstad	3-1	02.05.2026 18:00	Brann stadion	Eliteserien
+#7	Viking - Rosenborg	3-0	01.05.2026 18:00	Lyse Arena	Eliteserien
+april 2026
+#18	Bodø/Glimt - Start	5-0	30.04.2026 19:00	Aspmyra stadion	Eliteserien
+#17	Tromsø - Brann	0-5	29.04.2026 19:00	Romssa Arena	Eliteserien
+#6	Lillestrøm - Bodø/Glimt	0-2	26.04.2026 19:15	Åråsen stadion	Eliteserien
+#6	Aalesund - Kristiansund	1-1	26.04.2026 17:00	Color Line Stadion	Eliteserien
+#6	Tromsø - Sandefjord Fotball	3-1	26.04.2026 17:00	Romssa Arena	Eliteserien
+#6	KFUM - Sarpsborg 08	1-0	26.04.2026 17:00	KFUM-Arena	Eliteserien
+#6	HamKam - Start	2-1	26.04.2026 17:00	Briskeby	Eliteserien
+#6	Molde - Vålerenga	5-1	26.04.2026 14:30	Aker stadion	Eliteserien
+#6	Rosenborg - Brann	1-1	25.04.2026 18:00	Lerkendal stadion	Eliteserien
+#6	Fredrikstad - Viking	1-2	25.04.2026 16:00	Fredrikstad stadion	Eliteserien
+#5	Start - Molde	1-1	19.04.2026 19:15	Sparebanken Norge Arena Kristiansand	Eliteserien
+#5	Sarpsborg 08 - Tromsø	0-1	19.04.2026 17:00	Sarpsborg st KG	Eliteserien
+#5	Kristiansund - Fredrikstad	2-0	19.04.2026 17:00	Nordmøre stadion	Eliteserien
+#5	HamKam - KFUM	4-0	19.04.2026 17:00	Briskeby	Eliteserien
+#5	Vålerenga - Lillestrøm	0-2	19.04.2026 14:30	Intility Arena	Eliteserien
+#5	Viking - Brann	3-2	18.04.2026 18:00	Lyse Arena	Eliteserien
+#5	Sandefjord Fotball - Rosenborg	0-0	18.04.2026 16:00	Jotun Arena	Eliteserien
+#5	Bodø/Glimt - Aalesund	3-0	18.04.2026 14:00	Aspmyra stadion	Eliteserien
+#1	Sarpsborg 08 - Bodø/Glimt	1-1	15.04.2026 19:00	Sarpsborg st KG	Eliteserien
+#15	Tromsø - Lillestrøm	0-0	15.04.2026 19:00	Romssa Arena	Eliteserien
+#4	Brann - Sandefjord Fotball	0-1	12.04.2026 19:15	Brann stadion	Eliteserien
+#4	Fredrikstad - Vålerenga	1-1	12.04.2026 17:00	Fredrikstad stadion	Eliteserien
+#4	Aalesund - KFUM	2-2	12.04.2026 17:00	Color Line Stadion	Eliteserien
+#4	Molde - HamKam	4-1	12.04.2026 17:00	Aker stadion	Eliteserien
+#4	Rosenborg - Sarpsborg 08	2-1	12.04.2026 14:30	Lerkendal stadion	Eliteserien
+#4	Viking - Bodø/Glimt	5-0	11.04.2026 18:00	Lyse Arena	Eliteserien
+#4	Tromsø - Kristiansund	2-0	11.04.2026 16:00	Romssa Arena	Eliteserien
+#4	Lillestrøm - Start	3-1	11.04.2026 14:00	Åråsen stadion	Eliteserien
+#3	KFUM - Sandefjord Fotball	1-2	07.04.2026 19:00	KFUM-Arena	Eliteserien
+#3	Aalesund - Fredrikstad	2-3	07.04.2026 19:00	Color Line Stadion	Eliteserien
+#3	Tromsø - Rosenborg	2-0	06.04.2026 19:15	Romssa Arena	Eliteserien
+#3	Kristiansund - Bodø/Glimt	0-3	06.04.2026 17:00	Nordmøre stadion	Eliteserien
+#3	Sarpsborg 08 - Start	1-1	06.04.2026 17:00	Sarpsborg st KG	Eliteserien
+#3	HamKam - Brann	1-5	06.04.2026 17:00	Briskeby	Eliteserien
+#3	Molde - Lillestrøm	0-1	06.04.2026 17:00	Aker stadion	Eliteserien
+#3	Vålerenga - Viking	0-1	06.04.2026 14:30	Intility Arena	Eliteserien
+mars 2026
+#2	Sandefjord Fotball - Sarpsborg 08	0-2	22.03.2026 17:00	Jotun Arena	Eliteserien
+#2	Fredrikstad - KFUM	3-1	22.03.2026 17:00	Fredrikstad stadion	Eliteserien
+#2	Brann - Tromsø	1-2	22.03.2026 17:00	Brann stadion	Eliteserien
+#2	Rosenborg - Vålerenga	0-2	22.03.2026 14:30	Lerkendal stadion	Eliteserien
+#2	Viking - Molde	4-1	21.03.2026 18:00	Lyse Arena	Eliteserien
+#2	Start - Aalesund	1-1	21.03.2026 16:00	Sparebanken Norge Arena Kristiansand	Eliteserien
+#1	Tromsø - Fredrikstad	4-0	15.03.2026 19:15	Romssa Arena	Eliteserien
+#1	KFUM - Start	2-0	15.03.2026 17:00	KFUM-Arena	Eliteserien
+#1	Vålerenga - Sandefjord Fotball	1-0	15.03.2026 17:00	Intility Arena	Eliteserien
+#1	Aalesund - Lillestrøm	1-3	15.03.2026 17:00	Color Line Stadion	Eliteserien
+#1	Kristiansund - Brann	3-2	15.03.2026 14:30	Nordmøre stadion	Eliteserien
+#1	Molde - Rosenborg	2-0	14.03.2026 18:00	Aker stadion	Eliteserien
+#1	HamKam - Viking	2-1	14.03.2026 16:00	Briskeby	Eliteserien
